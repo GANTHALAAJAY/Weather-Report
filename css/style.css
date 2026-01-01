@@ -1,0 +1,310 @@
+body {
+    background-image: url('../assets/images/sunny.jpg');
+    background-size: 100%;
+    background-attachment: fixed;
+    /* background-repeat: no-repeat; */
+    font-family: "comfortaa", sans-serif;
+    color: white;
+}
+
+.searchBar {
+    height: 10vh;
+    display: flex;
+    /* background: black; */
+    align-items: center;
+    justify-content: center;
+}
+
+.searchBarParentDiv {
+    width: 50%;
+    height: fit-content;
+    position: relative;
+}
+
+.inputfield {
+    width: 100%;
+    border-radius: 25px;
+    padding: 10px;
+
+}
+
+.searchIcon {
+    position: absolute;
+    right: 8px;
+    top: 9px;
+
+}
+
+.searchIcon:hover {
+    cursor: pointer;
+}
+
+.inputfield {
+    outline: none;
+}
+
+.mainContentParentDiv {
+    height: 90vh;
+}
+
+.leftDiv {
+    width: 30%;
+    /* border: 2px solid green; */
+    display: flex;
+    flex-direction: column;
+}
+
+.leftChild {
+    background: rgba(212, 212, 212, 0.4);
+    width: 85%;
+    /* height: 40vh; */
+    min-height: 40vh;
+    height: auto;
+    margin: auto;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+}
+
+.currentTempDiv h6 {
+    font-size: large;
+}
+
+#CityName {
+    font-size: xx-large;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.2;
+}
+
+#CityTemp {
+    font-size: x-large;
+}
+
+#commingFiveDaysTitle {
+    font-size: x-large;
+
+}
+
+
+.rightDiv {
+    width: 70%;
+    /* border: 2px solid red; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.rightRow {
+    height: 27vh;
+    width: 100%;
+    /* border: 2px white solid; */
+}
+
+.extraMetric {
+    background: rgba(212, 212, 212, 0.4);
+    padding: 5% 2%;
+    margin: 3%;
+    width: fit-content;
+    border-radius: 15px;
+    align-items: center;
+}
+
+/* Responsive refinements */
+.rowTwoDiv {
+    background: rgba(212, 212, 212, 0.4);
+    backdrop-filter: blur(15px);
+    width: 45%;
+    /* height: 85%; Removed fixed height */
+    min-height: 25vh;
+    /* Ensure it has some height but can grow */
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Distribute space */
+}
+
+/* Tablet Responsiveness */
+@media only screen and (max-width: 1024px) {
+    .mainContentParentDiv {
+        flex-direction: column;
+        height: auto;
+        /* Allow scrolling on main container */
+    }
+
+    .leftDiv,
+    .rightDiv {
+        width: 100%;
+    }
+
+    .leftDiv {
+        flex-direction: row;
+        gap: 20px;
+        height: auto;
+    }
+
+    .leftChild {
+        width: 48%;
+        /* Split top area */
+        height: auto;
+        min-height: 300px;
+    }
+
+    .rightRow {
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .rowTwoDiv {
+        min-height: 200px;
+    }
+}
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 767px) {
+    .mainContentParentDiv {
+        height: auto;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    .leftDiv {
+        flex-direction: column;
+        margin-top: 15px;
+    }
+
+    .leftChild {
+        width: 90%;
+        height: auto;
+    }
+
+    .rightDiv {
+        width: 100%;
+        gap: 15px;
+    }
+
+    .searchBarParentDiv {
+        width: 90%;
+    }
+
+    .rowOne {
+        width: 90%;
+        margin: auto;
+        justify-content: center;
+    }
+
+    .rowTwo {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+    }
+
+    .rowTwoDiv {
+        width: 90%;
+        height: auto;
+        margin: auto;
+        padding: 20px !important;
+    }
+
+    .rowThree {
+        width: 90%;
+        margin: auto;
+    }
+
+    .todayTempParentDiv {
+        justify-content: flex-start;
+        /* scroll */
+        flex-wrap: nowrap;
+        /* Force scroll horizontally */
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+}
+
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes breathe {
+    0% {
+        background-size: 100%;
+    }
+
+    50% {
+        background-size: 105%;
+    }
+
+    100% {
+        background-size: 100%;
+    }
+}
+
+/* Apply Animations */
+body {
+    animation: breathe 30s infinite ease-in-out;
+}
+
+.searchIcon {
+    transition: transform 0.3s ease;
+}
+
+.searchIcon:hover {
+    transform: rotate(15deg) scale(1.1);
+}
+
+#mainWeatherIcon {
+    animation: float 6s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.sunRiseDiv img,
+.sunSetDiv img {
+    animation: pulse 4s infinite ease-in-out;
+}
+
+.todayTemp:hover,
+.foreCastRow:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.extraMetric img {
+    transition: transform 0.3s ease;
+}
+
+.extraMetric:hover img {
+    transform: rotate(20deg);
+}
